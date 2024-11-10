@@ -8,7 +8,6 @@ ul{
     padding: 10px; 
     overflow: hidden;
     background-color: green;
-    
 }
 li{
     float: right;
@@ -29,7 +28,7 @@ li a:hover{
 }
 .slider-wrapper{
     position: relative;
-    max-width: 45rem;
+    max-width: 900px;
     margin: 0 auto;
 }
 img{
@@ -37,7 +36,8 @@ img{
 }
 .slider{
     display: flex;
-    aspect-ratio: 16 /10;
+    aspect-ratio: 16/10 auto;
+    /* padding: 300px 500px; */
     overflow-x: auto;
     scroll-snap-type:x mandatory;
     scroll-behavior: smooth;
@@ -45,6 +45,8 @@ img{
 .slider-img{
     flex: 1 0 100%;
     scroll-snap-align: start;
+    animation: moveImage 5s infinite alternate ease-in-out;
+    transition: all 0.3s ease;
 }
 .slider-nav{
     display: flex;
@@ -68,8 +70,8 @@ img{
     opacity: 1;
 }
 button{
-    margin: 10px;
-    padding: 10px;
+    margin: 15px;
+    padding: 15px 30px;
     position:absolute;
     left:100px;
     /* border: none; */
@@ -88,3 +90,11 @@ button:hover{
 button a:hover{
     color: #fff;
 }
+@keyframes moveImage {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(300px); /* Move right by 300 pixels */
+    }
+  }
